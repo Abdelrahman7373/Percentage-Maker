@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Price Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Price Calculator</h1>
+        <div class="input-container">
+            <label for="price">Enter The Price:</label>
+            <input type="text" id="price" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <label for="discount">Enter The Discount Percentage:</label>
+            <input type="text" id="discount" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <button class="button" onclick="calculateDiscountedPrice()">Calculate Discounted Price</button>
+        </div>
+        <div class="result" id="discounted-price"></div>
+    </div>
+    <div class="go-back-container">
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

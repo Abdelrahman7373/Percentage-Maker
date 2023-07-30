@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Score to Percentage Convertor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Score to Percentage</h1>
+        <div class="input-container">
+            <label for="score">Enter Your Score:</label>
+            <input type="text" id="score" />
+        </div>
+        <div class="input-container">
+            <label for="total">Enter The Max Score:</label>
+            <input type="text" id="total" />
+        </div>
+        <div class="input-container">
+            <button class="button" onclick="calculatePercentage()">Convert</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+    <div class="go-back-container">
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
