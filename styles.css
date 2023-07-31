@@ -71,6 +71,54 @@ input:focus {
     background-color: rgb(48, 213, 213);
 }
 
+.select-container {
+    position: relative;
+}
+
+.select-container select {
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-color: rgb(58, 233, 233);
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.select-container select::-ms-expand {
+    display: none;
+}
+
+
+.select-container select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: rgb(58, 233, 233);
+    pointer-events: none;
+}
+
+.select-container select option {
+    background-color: #fff;
+    color: #555;
+}
+
+.select-container select:focus {
+    outline: none;
+    border-color: rgb(58, 233, 233);
+    box-shadow: 0 0 5px rgb(58, 233, 233);
+}
+
+.select-container select option:hover {
+    background-color: rgb(58, 233, 233);
+    color: rgb(58, 233, 233);
+}
+
+
 .result {
     text-align: center;
     margin-top: 20px;
