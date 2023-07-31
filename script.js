@@ -29,6 +29,26 @@ function calculateDiscountedPrice() {
     }
 }
 
+function calculateTimeToSave() {
+    const monthlyIncome = parseFloat(document.getElementById('monthlyIncome').value.replace(/,/g, ''));
+    const monthlyExpenses = parseFloat(document.getElementById('monthlyExpenses').value.replace(/,/g, ''));
+    const itemCost = parseFloat(document.getElementById('itemCost').value.replace(/,/g, ''));
+
+    if (!isNaN(monthlyIncome) && !isNaN(monthlyExpenses) && !isNaN(itemCost)) {
+        const monthlySavings = monthlyIncome - monthlyExpenses;
+        if (monthlySavings <= 0) {
+            document.getElementById('timeToSaveResult').innerHTML = "You need to reduce your Monthly Expenses or increase your Monthly Income to afford this item.";
+        } else {
+            const timeToSave = Math.ceil(itemCost / monthlySavings);
+            const plural = timeToSave === 1 ? '' : 's';
+            const formattedTimeToSave = timeToSave.toLocaleString();
+            document.getElementById('timeToSaveResult').innerHTML = `It will take approximately ${formattedTimeToSave} month${plural} to save for this item.`;
+        }
+    } else {
+        document.getElementById('timeToSaveResult').innerHTML = "Please enter valid numbers.";
+    }
+}
+
 
 function addCommas(number) {
     const parts = number.toString().split(".");
@@ -52,6 +72,10 @@ function navigateToPriceCalculator() {
     window.location.href = "price_calculator.html";
 }
 
+function navigateToSavingsCalculator() {
+    window.location.href = "save_money.html";
+}
+
 
 
 function goBack() {
@@ -73,4 +97,8 @@ document.getElementById("price").addEventListener("input", function() {
 
 document.getElementById("discount").addEventListener("input", function() {
     handleNumberInput(this);
+});
+
+document.getElementById("timeToSaveButton").addEventListener("click", function() {
+    calculateTimeToSave();
 });
