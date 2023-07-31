@@ -49,6 +49,43 @@ function calculateTimeToSave() {
     }
 }
 
+function calculateMoneyLeft() {
+    const bankBalance = parseFloat(document.getElementById('bankBalance').value.replace(/,/g, ''));
+    const weddingCost = parseFloat(document.getElementById('weddingCost').value.replace(/,/g, ''));
+    const housingChoice = document.getElementById('housingChoice').value;
+    const houseRent = parseFloat(document.getElementById('houseRent').value.replace(/,/g, ''));
+    const houseCost = parseFloat(document.getElementById('houseCost').value.replace(/,/g, ''));
+    const houseFurnitureCost = parseFloat(document.getElementById('houseFurniture').value.replace(/,/g, ''));
+
+    let moneyLeft = bankBalance - weddingCost;
+
+    if (housingChoice === 'rent') {
+        moneyLeft -= (houseFurnitureCost + houseRent * 12);
+    } else if (housingChoice === 'buy') {
+        moneyLeft -= (houseCost + houseFurnitureCost);
+    }
+
+    if (moneyLeft >= 0) {
+        document.getElementById('moneyLeftResult').innerHTML = `You will have approximately $${moneyLeft.toLocaleString()} left after all of this.`;
+    } else {
+        document.getElementById('moneyLeftResult').innerHTML = "You need to increase your monthly income or reduce your monthly expenses or save more money to afford the wedding.";
+    }
+}
+
+function toggleHousingInput() {
+    const housingChoice = document.getElementById('housingChoice').value;
+    const rentHouseContainer = document.querySelector('.rent-house-container');
+    const buyHouseContainer = document.querySelector('.buy-house-container');
+
+    if (housingChoice === 'rent') {
+        rentHouseContainer.style.display = 'block';
+        buyHouseContainer.style.display = 'none';
+    } else if (housingChoice === 'buy') {
+        rentHouseContainer.style.display = 'none';
+        buyHouseContainer.style.display = 'block';
+    }
+}
+
 
 function addCommas(number) {
     const parts = number.toString().split(".");
@@ -74,6 +111,10 @@ function navigateToPriceCalculator() {
 
 function navigateToSavingsCalculator() {
     window.location.href = "save_money.html";
+}
+
+function navigateToWeddingCalculator() {
+    window.location.href = "wedding_planner.html";
 }
 
 
