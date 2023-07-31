@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Savings Calculator</title>
+    <link rel="icon" type="image/x-icon" href="calculator.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Savings Calculator</h1>
+        <div class="input-container">
+            <label for="monthlyIncome">Monthly Income:</label>
+            <input type="text" id="monthlyIncome" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <label for="monthlyExpenses">Monthly Expenses:</label>
+            <input type="text" id="monthlyExpenses" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <label for="itemCost">Item Cost:</label>
+            <input type="text" id="itemCost" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <button class="button" id="timeToSaveButton" onclick="calculateTimeToSave()">Calculate Time To Save</button>
+        </div>
+        <div class="result" id="timeToSaveResult"></div>
+
+    </div>
+    <div class="go-back-container">
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
