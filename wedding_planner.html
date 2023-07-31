@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedding Planner</title>
+    <link rel="icon" type="image/x-icon" href="calculator.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wedding Planner</h1>
+        <div class="input-container">
+            <label for="bankBalance">Bank Account Balance:</label>
+            <input type="text" id="bankBalance" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <label for="weddingCost">Wedding Cost:</label>
+            <input type="text" id="weddingCost" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <label for="housingChoice">Are you going to buy a house or rent a house?</label>
+            <div class="select-container">
+                <select id="housingChoice" onchange="toggleHousingInput()">
+                    <option value="rent">Rent a House</option>
+                    <option value="buy">Buy a House</option>
+                </select>
+            </div>
+        </div>
+        <!-- Rent a House section -->
+        <div class="rent-house-container">
+            <div class="input-container" id="houseRentInput">
+                <label for="houseRent">House Rent Cost:</label>
+                <input type="text" id="houseRent" oninput="handleNumberInput(this)"/>
+            </div>
+        </div>
+        <!-- Buy a House section -->
+        <div class="buy-house-container" id="houseCostInput" style="display: none;">
+            <div class="input-container">
+                <label for="houseCost">House Cost:</label>
+                <input type="text" id="houseCost" oninput="handleNumberInput(this)"/>
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="houseFurniture">How much does the house furniture cost?</label>
+            <input type="text" id="houseFurniture" oninput="handleNumberInput(this)"/>
+        </div>
+        <div class="input-container">
+            <button class="button" onclick="calculateMoneyLeft()">Calculate Money Left</button>
+        </div>
+        <div class="result" id="moneyLeftResult"></div>
+    </div>
+    <div class="go-back-container">
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
